@@ -13,10 +13,11 @@ pipeline {
     stage ('PRINT') {
       steps {
         echo "Deploying to ${params.ENV}" 
-	      echo "Code from ${params.BRANCH}"
+	echo "Code from ${params.BRANCH}"
         sh '''
-		      echo "over"
+		echo Deploying to ${ENV} 
+		echo Code from ${BRANCH}
 	        exit 0 
-	         '''
+	   '''
       }  
     } 
