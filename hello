@@ -1,10 +1,22 @@
 pipeline {
   agent any
+	parameters {
+  string defaultValue: 'test', description: 'environment variable ', name: 'ENV', trim: true
+  choice choices: ['main', 'master'], description: 'code from ', name: 'BRANCH'
+	}
+	environment {
+		DEPLOY_ENV = "$ENV"
+		DEPLOY_BRANCH = "$BRANCH"
+	}
   stages {
-	stage ('PRINT') {
-        steps {
+
+    stage ('PRINT') {
+      steps {
+        echo "Deploying to ${params.ENV}" 
+	echo "Code from ${params.BRANCH}"
         sh '''
-		echo "hello"
+		echo Deploying to ${ENV} 
+		echo Code from ${BRANCH}
 	        exit 0 
 	   '''
       }  
