@@ -3,11 +3,11 @@ pipeline {
   stages {
 	stage ('PRINT') {
         steps {
-        // echo "Deploying to ${params.ENV}" 
-	// echo "Code from ${params.BRANCH}"
         sh '''
 		echo "hello"
 	        exit 0 
 	   '''
       }  
     } 
+    }
+    }
